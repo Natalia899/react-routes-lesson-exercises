@@ -4,6 +4,7 @@ import './App.css';
 import Home from './components/Home';
 import About from './components/About';
 import  Fentities from './components/Fentities';
+import  Fentitiy from './components/Fentity';
 
 class App extends Component {
   constructor() {
@@ -34,7 +35,8 @@ class App extends Component {
         </div>
         <Route path="/" exact component={Home}/>
 <Route path="/about" exact render={() => <About items={Object.keys(state)} />} />
-<Route path="/directory/:fentities" exact render={({ match }) => <Fentities match={match} />}/>
+<Route path="/directory/:fentities" exact render={({ match }) => <Fentities match={match} state={this.state} />}/>
+<Route path="/directory/:fentities/:name" exact render={({ match }) => <Fentitiy match={match} state={this.state} />}/>
       </div>
       </ Router>
     );
